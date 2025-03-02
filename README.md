@@ -1,6 +1,6 @@
 # WebSocket Order Management Server
 
-This project implements a WebSocket-based order management system, allowing clients to connect to the server and receive updates about orders placed for different products. The server handles client connections, processes orders, and sends updates to connected clients in real-time. It was aso my chance to right proper README so plaease enjoy.
+This project implements a WebSocket-based order management system, allowing clients to connect to the server and receive updates about orders placed for different products. The server handles client connections, processes orders, and sends updates to connected clients in real-time. It was aso my chance to right proper README so please enjoy.
 
 ## Features
 - **WebSocket Connections**: Clients can connect to the server via WebSocket and receive real-time product order updates.
