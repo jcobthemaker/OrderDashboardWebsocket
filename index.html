@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Order Updates</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h2>Place your order</h2>
+    <select id="order[product_hash]">
+        <option selected value="">Select product</option>
+    </select>
+    <input type="number" id="order[quantity]" placeholder="Type quantity">
+    <button id="sendOrderBtn">Send</button>
+    <div id="messages"></div>
+
+    <h2>Live Order Updates</h2>
+    <ul id="orders"></ul>
+
+    <script>
+        const socket = new WebSocket("ws://localhost:8080/ws");
+
+        socket.onopen = () => {
+            console.log("Connected to WebSocket server");
+        };
+
+        socket.onmessage = (event) => {
+            var data = JSON.parse(event.data);
+
+            if (typeof data === 'object') {
+                for (const key in data) {
+                    if (data.hasOwnProperty(key)) {
+                        $("#order\\[product_hash\\]").append(
+                            $("<option></option>").attr("value", key).text(data[key])
+                        );
+                    }
+                }
+
+            }
+            else {
+                $("#orders").append(`<li>${data}</li>`);
+            }
+
+        };
+
+        socket.onclose = () => {
+            console.log("WebSocket connection closed");
+        };
+
+        $("#sendOrderBtn").click(function () {
+            let productHash = $("#order\\[product_hash\\]").val().trim();
+            let quantity = parseInt($("#order\\[quantity\\]").val().trim(), 10);
+
+            if (productHash && quantity) {
+
+                const orderData = {
+                    product_hash: productHash,
+                    quantity: quantity
+                };
+
+                socket.send(JSON.stringify(orderData));
+
+                $("#order\\[product_hash\\]").val("");
+                $("#order\\[quantity\\]").val("");
+            } else {
+                alert("Both product ID and quantity are required!");
+            }
+        });
+    </script>
+</body>
+
+</html>
