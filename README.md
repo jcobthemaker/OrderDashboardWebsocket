@@ -15,9 +15,6 @@ This project implements a WebSocket-based order management system, allowing clie
 - **JSON**: For serializing and deserializing messages sent between the client and server.
 - **JQuery**: Simple HTML with with JQuery in order to display and dinamically handle incoming orders and submitting new ones
 
-## Dependencies
-- `github.com/gorilla/websocket` - For managing WebSocket connections and communication.
-
 ## How It Works
 
 1. **WebSocket Connection**: 
