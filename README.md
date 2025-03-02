@@ -13,10 +13,10 @@ This project implements a WebSocket-based order management system, allowing clie
 - **WebSocket**: WebSocket protocol is used for real-time communication between clients and the server.
 - **Gorilla WebSocket Library**: Used to handle WebSocket connections (`github.com/gorilla/websocket`).
 - **JSON**: For serializing and deserializing messages sent between the client and server.
+- **JQuery**: Simple HTML with with JQuery in order to display and dinamically handle incoming orders and submitting new ones
 
 ## Dependencies
 - `github.com/gorilla/websocket` - For managing WebSocket connections and communication.
-
 
 ## How It Works
 
