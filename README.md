@@ -70,10 +70,10 @@ This ensures that the server's behavior is monitored and any issues are recorded
 ## Further Development
 
 In the future I plan to add: 
--Custom Error Types
--Connection to cloud or database in order to store product types and user orders
--Adding sync.RWMutex in order to allow multiple clients to read concurrently without deadlocks
--Some function decomposition casue I see that there are still possibilities to break down large functions
--Mechanism of graceful server shutdown
--Worker pool in the scenario of more clients
--Adding some memory optimisations. I was reading about sync.Pool for object reuse but in the time of writing this version I havent worked with this yet. See you in the next update
+- Custom Error Types
+- Connection to cloud or database in order to store product types and user orders
+- Adding sync.RWMutex in order to allow multiple clients to read concurrently without deadlocks
+- Some function decomposition casue I see that there are still possibilities to break down large functions
+- Mechanism of graceful server shutdown
+- Worker pool in the scenario of more clients
+- Adding some memory optimisations. I was reading about sync.Pool for object reuse but in the time of writing this version I havent worked with this yet. See you in the next update
