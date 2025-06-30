@@ -31,6 +31,30 @@ This project implements a WebSocket-based order management system, allowing clie
 4. **Real-time Updates**: 
    Clients that are connected via WebSocket will receive updates whenever a new order is processed (either a dummy order or a client-submitted order).
 
+## Running with Docker
+
+1. **Build the Docker image:**
+
+   ```sh
+   docker build -t order-dashboard-ws .
+   ```
+
+2. **Run the Docker container:**
+
+   ```sh
+   docker run -p 8080:8080 order-dashboard-ws
+   ```
+
+   The server will be available at `ws://localhost:8080/ws`.
+
+
+3. **Open `index.html` in your browser:**
+
+**Note:**  
+Make sure the Docker container is running before opening `index.html`. The frontend and backend communicate via WebSocket on port 8080.
+
+---
+ 
 ## Key Functions
 
 - **`GenerateID()`**:  
